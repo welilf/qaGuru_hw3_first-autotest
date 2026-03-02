@@ -3,29 +3,30 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class firstAutotestForForm {
 
     @BeforeAll
-    static void setup() {
-        Configuration.holdBrowserOpen = true;  // браузер не закрывается после теста
+    static void setUp() {
+        Configuration.baseUrl = "https://demoqa.com";
     }
 
     @Test
     void successfulFillFormTest() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $("[id=firstName]").setValue("Jane");
         $("[id=lastName]").setValue("Austen");
         $("[id=userEmail]").setValue("mrsAusten@icloud.com");
-        $("[for='gender-radio-1']").click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("[id=userNumber]").setValue("8999999999");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1995");
         $(".react-datepicker__day--015").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
-        $("[for='hobbies-checkbox-2']").click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
         $("[id=uploadPicture]").uploadFromClasspath("cat.png");
         $("[id=currentAddress]").setValue("groove street, 33");
         $("#state").scrollIntoView(true);
