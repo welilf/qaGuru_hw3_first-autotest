@@ -1,13 +1,12 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class FirstAutotestForForm {
+public class FirstFormTest {
 
     String firstName;
     String lastName;
@@ -29,8 +28,8 @@ public class FirstAutotestForForm {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
-    @BeforeEach
-    void setUpTestData() {
+    @Test
+    void successfulFillFormTest() {
         firstName = "Jane";
         lastName = "Austen";
         userEmail = "mrsAusten@icloud.com";
@@ -45,10 +44,7 @@ public class FirstAutotestForForm {
         currentAddress = "groove street, 33";
         state = "NCR";
         city = "Delhi";
-    }
 
-    @Test
-    void successfulFillFormTest() {
         open("/automation-practice-form");
         $("[id=firstName]").setValue(firstName);
         $("[id=lastName]").setValue(lastName);
