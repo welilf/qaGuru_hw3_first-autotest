@@ -50,10 +50,9 @@ public class FirstFormTest {
         city = "Delhi";
 
         SuccessfulFillFormPage successfulFillFormPage = new SuccessfulFillFormPage();
-        ResultTableComponent resultsTable = new ResultTableComponent();
 
-
-        successfulFillFormPage.openPage()
+        successfulFillFormPage
+                .openPage()
                 .typeFirstName(firstName)
                 .typeLastName(lastName)
                 .typeUserEmail(userEmail)
@@ -68,7 +67,7 @@ public class FirstFormTest {
                 .setCity(city)
                 .submitForm();
 
-        resultsTable
+        successfulFillFormPage
                 .checkField("Student Name", firstName + " " + lastName)
                 .checkField("Student Email", userEmail)
                 .checkField("Gender", gender)

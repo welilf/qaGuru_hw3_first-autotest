@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class SuccessfulFillFormPage {
 
     CalendarComponent calendar = new CalendarComponent();
+    ResultTableComponent resultsTable = new ResultTableComponent();
 
     // Elements
     private final SelenideElement firstNameInput = $("#firstName");
@@ -98,6 +100,11 @@ public class SuccessfulFillFormPage {
 
     public SuccessfulFillFormPage submitForm() {
         submitButton.click();
+        return this;
+    }
+
+    public SuccessfulFillFormPage checkField (String key, String value) {
+        resultsTable.checkField(key, value);
         return this;
     }
 }
