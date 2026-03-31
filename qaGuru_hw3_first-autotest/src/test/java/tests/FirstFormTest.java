@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.SuccessfulFillFormPage;
+import pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -49,6 +50,8 @@ public class FirstFormTest {
         city = "Delhi";
 
         SuccessfulFillFormPage successfulFillFormPage = new SuccessfulFillFormPage();
+        ResultTableComponent resultsTable = new ResultTableComponent();
+
 
         successfulFillFormPage.openPage()
                 .typeFirstName(firstName)
@@ -65,7 +68,7 @@ public class FirstFormTest {
                 .setCity(city)
                 .submitForm();
 
-        successfulFillFormPage
+        resultsTable
                 .checkField("Student Name", firstName + " " + lastName)
                 .checkField("Student Email", userEmail)
                 .checkField("Gender", gender)

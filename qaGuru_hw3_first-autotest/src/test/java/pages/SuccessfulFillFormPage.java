@@ -12,21 +12,19 @@ public class SuccessfulFillFormPage {
     CalendarComponent calendar = new CalendarComponent();
 
     // Elements
-    private SelenideElement firstNameInput = $("#firstName");
-    private SelenideElement lastNameInput = $("#lastName");
-    private SelenideElement userEmail = $("#userEmail");
-    private SelenideElement genderContainer = $("#genterWrapper");
-    private SelenideElement userNumber = $("#userNumber");
-    private SelenideElement submitButton = $("#submit");
-    private SelenideElement dateOfBirth = $("#dateOfBirthInput");
-    private SelenideElement subjectsInput = $("#subjectsInput");
-    private SelenideElement hobbiesWrapper = $("#hobbiesWrapper");
-    private SelenideElement uploadPicture = $("#uploadPicture");
-    private SelenideElement currentAddressInput = $("#currentAddress");
-    private SelenideElement stateDropdown = $("#state");
-    private SelenideElement cityDropdown = $("#city");
-
-    private SelenideElement outputResults = $(".table-responsive");    // Actions
+    private final SelenideElement firstNameInput = $("#firstName");
+    private final SelenideElement lastNameInput = $("#lastName");
+    private final SelenideElement userEmail = $("#userEmail");
+    private final SelenideElement genderContainer = $("#genterWrapper");
+    private final SelenideElement userNumber = $("#userNumber");
+    private final SelenideElement submitButton = $("#submit");
+    private final SelenideElement dateOfBirth = $("#dateOfBirthInput");
+    private final SelenideElement subjectsInput = $("#subjectsInput");
+    private final SelenideElement hobbiesWrapper = $("#hobbiesWrapper");
+    private final SelenideElement uploadPicture = $("#uploadPicture");
+    private final SelenideElement currentAddressInput = $("#currentAddress");
+    private final SelenideElement stateDropdown = $("#state");
+    private final SelenideElement cityDropdown = $("#city");
 
     // Actions
 
@@ -100,14 +98,6 @@ public class SuccessfulFillFormPage {
 
     public SuccessfulFillFormPage submitForm() {
         submitButton.click();
-        return this;
-    }
-
-    public SuccessfulFillFormPage checkField (String key, String value) {
-        outputResults.
-                $$("tr").
-                findBy(text(key)).
-                shouldHave(text(value));
         return this;
     }
 }
