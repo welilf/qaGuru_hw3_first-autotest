@@ -15,6 +15,9 @@ dependencies {
 
     // Selenide
     testImplementation 'com.codeborne:selenide:7.14.0'
+
+    // javaFaker
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
 test {
