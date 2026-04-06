@@ -32,7 +32,7 @@ public class FirstFormTest {
                 .uploadPicture(data.picture)
                 .setAddress(data.currentAddress)
                 .setState(data.state)
-                .setCity(data.city)
+                .setCity(data.selectCity)
                 .submitForm();
 
         successfulFillFormPage
@@ -45,6 +45,6 @@ public class FirstFormTest {
                 .checkField("Hobbies", data.hobbie)
                 .checkField("Picture", data.picture)
                 .checkField("Address", data.currentAddress)
-                .checkField("State and City", data.state + " " + data.city);
+                .checkField("State and City", data.state + " " + data.selectCity);
     }
 }

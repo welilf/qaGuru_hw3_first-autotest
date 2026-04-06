@@ -21,16 +21,14 @@ public class TestData {
     public String picture = "cat.png";
     public String currentAddress = faker.address().fullAddress();
     public String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-    public String city;
-    {
-        if (state.equals("NCR")) {
-            city = faker.options().option("Delhi", "Gurgaon", "Noida");
-        } else if (state.equals("Uttar Pradesh")) {
-            city = faker.options().option("Agra", "Lucknow", "Merrut");
-        } else if (state.equals("Haryana")) {
-            city = faker.options().option("Karnal", "Panipat");
-        } else {
-            city = faker.options().option("Jaipur", "Jaiselmer");
-    }
+    public String selectCity = city(state);
+    public String city(String state) {
+        return switch (state) {
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            default -> null;
+        };
     }
 }
